@@ -1,0 +1,7 @@
+<ul>
+    {% for id in site.data.nav2 %}
+        {% assign linkedPage = site.pages | where: "id", id | first %}
+
+        <li><a href="{{ linkedPage.url }}">PAGE: {{linkedPage.url}}</a></li>
+    {% endfor %}
+</ul>
