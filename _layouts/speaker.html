@@ -6,23 +6,33 @@ layout: default
 {% assign talk = site.talks | where: "talk_id", speaker.talk_id | first %}
 
 <script>
-  console.log({{speaker|jsonify}});
-  console.log({{talk|jsonify}});
+  console.log({
+    page: {{page|jsonify}},
+    speaker: {{speaker|jsonify}},
+    talk: {{talk|jsonify}}
+  });
 </script>
 
 <header class="header bg--off-white">
   <div class="container">
-    <div class="col-xs-8 col-6 col-sm-offset-2">
-      {% include responsive-image
-          path="/assets/images/speakers"
-          basename=speaker.speaker_id
-          srcset="small.jpg 1x, medium.jpg 2x" %}
-    </div>
+    <div class="speaker">
+      <div class="speaker__text">
+        <h1 class="speaker__name {{ speaker.color | default:'blue' | prepend:'color--'}}">{{ speaker.name }}</h1>
+        <div class="speaker__location">{{ speaker.location }}</div>
+      </div>
 
-    <div class="col-xs-4">
-      <h1 class="pt3">
-        {{ speaker.name }}
-      </h1>
+      <!-- fixme: decorations per speaker need to be dynamic.
+        There are multiple sets of symbols and positionings. Which one to use
+        could either be configured or randomly chosen. -->
+      <div class="speaker__image">
+        <span class="speaker__shapes speaker__shapes--one-before">{% include helpers/svg id="triangle-green" %}</span>
+        {% include responsive-image
+            width=240 height=290
+            path="/assets/images/speakers"
+            basename=speaker.speaker_id
+            srcset="small.jpg 1x, medium.jpg 2x" %}
+        <span class="speaker__shapes speaker__shapes--one-after">{% include helpers/svg id="circle-orange" %}</span>
+      </div>
     </div>
   </div>
 </header>
