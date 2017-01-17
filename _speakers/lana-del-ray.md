@@ -2,6 +2,8 @@
 speaker_id: lana-del-ray
 talk_id: scarlet-css-dress
 name: "Lana Del Ray"
+firstname: "Lana"
+lastname: "Del Rey"
 location: "San Fransisco, USA"
 color: mint
 intro: "Ich bins, Lana Del Ray! Lorem dim sum aluminium dolor sit amit git commit it's lit"
