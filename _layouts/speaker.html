@@ -17,7 +17,7 @@ layout: default
   <div class="container">
     <div class="speaker">
       <div class="speaker__text">
-        <h1 class="speaker__name {{ speaker.color | default:'blue' | prepend:'color--'}}">
+        <h1 class="speaker__name {{ speaker.bg | default:'blue' | prepend:'color--'}}">
           {% if speaker.firstname and speaker.lastname %}
             {{ speaker.firstname }}<br>{{ speaker.lastname }}
           {% else %}
@@ -78,11 +78,6 @@ layout: default
     </div>
   </section>
 
-  <section>
-    <div class="container">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-      </div>
-    </div>
-  </section>
-</main>
+  {% include speakers-list.html %}
 
+</main>
