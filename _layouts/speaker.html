@@ -5,14 +5,6 @@ layout: default
 {% assign speaker = page %}
 {% assign talk = site.talks | where: "talk_id", speaker.talk_id | first %}
 
-<script>
-  console.log({
-    page: {{page|jsonify}},
-    speaker: {{speaker|jsonify}},
-    talk: {{talk|jsonify}}
-  });
-</script>
-
 <header class="header bg--off-white">
   <div class="container">
     <div class="speaker">
